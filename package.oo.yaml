@@ -1,0 +1,9 @@
+version: 0.0.1
+scripts:
+  bootstrap: |
+    npm install
+    poetry install --no-root
+dependencies:
+  upload-to-cloud: 0.0.5
+  downloader: 0.1.1
+icon: ./icon.png

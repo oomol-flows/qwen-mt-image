@@ -1,0 +1,40 @@
+inputs_def:
+  - handle: taskId
+    description: "The task ID returned from the submit request"
+    json_schema:
+      type: string
+    nullable: false
+  - group: Optional
+    collapsed: true
+  - handle: maxRetries
+    description: "Maximum number of polling attempts"
+    json_schema:
+      type: number
+    nullable: true
+    value: 60
+  - handle: retryInterval
+    description: "Seconds to wait between polling attempts"
+    json_schema:
+      type: number
+    nullable: true
+    value: 2
+
+outputs_def:
+  - handle: translatedImageURL
+    description: "URL of the translated image"
+    json_schema:
+      type: string
+  - handle: status
+    description: "Final status of the translation task"
+    json_schema:
+      type: string
+
+executor:
+  name: python
+  options:
+    entry: __init__.py
+    spawn: false
+
+title: "Get Image Translation Result"
+icon: ":carbon:image-search:"
+description: "Poll the Qwen MT Image service for translation results using the task ID. Automatically retries until the task is complete or max retries is reached"

@@ -1,0 +1,161 @@
+title: Local Image Translation
+description: "Translate text in a local image file from source to target
+  language and save the result."
+nodes:
+  - node_id: submit#1
+    task: self::submit-image-translation
+    inputs_from:
+      - handle: imageURL
+        value: "https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/6962921671\
+          /p1007156.webp"
+        from_flow:
+          []
+        from_node:
+          - node_id: upload-to-cloud#1
+            output_handle: remote_url
+      - handle: sourceLang
+        from_flow:
+          - input_handle: sourceLang
+      - handle: targetLang
+        from_flow:
+          - input_handle: targetLang
+
+  - node_id: get-result#1
+    task: self::get-image-translation-result
+    inputs_from:
+      - handle: taskId
+        from_node:
+          - node_id: submit#1
+            output_handle: taskId
+      - handle: maxRetries
+        value: 60
+      - handle: retryInterval
+        value: 2
+  - node_id: upload-to-cloud#1
+    title: "上传文件到云端 #1"
+    inputs_from:
+      - handle: file
+        from_flow:
+          - input_handle: image_file
+    task: upload-to-cloud::upload-to-cloud
+  - node_id: file-downloader#1
+    title: "下载文件 #1"
+    inputs_from:
+      - handle: url
+        from_node:
+          - node_id: get-result#1
+            output_handle: translatedImageURL
+      - handle: saved_path
+        value: null
+        from_flow:
+          - input_handle: saved_path
+      - handle: if_existing
+        value: override
+      - handle: threads_count
+        value: 1
+      - handle: headers
+        value:
+          {}
+      - handle: cookies
+        value:
+          {}
+      - handle: window_width
+        value: 7
+      - handle: failure_ladder
+        value:
+          - 5
+      - handle: min_segment_length
+        value: 1048576
+      - handle: once_fetch_size
+        value: 16384
+      - handle: timeout
+        value: 30
+      - handle: retry_times
+        value: 0
+      - handle: retry_sleep
+        value: 0
+    subflow: downloader::file-downloader
+inputs_def:
+  - handle: image_file
+    description: The URL of the image to be translated
+    json_schema:
+      type: string
+      ui:widget: file
+    nullable: false
+    executor_name: python
+  - handle: sourceLang
+    json_schema:
+      type: string
+      enum:
+        - zh
+        - en
+        - ko
+        - ja
+        - ru
+        - es
+        - fr
+        - pt
+        - it
+      ui:options:
+        enumNames:
+          - Chinese (简体中文)
+          - English (英文)
+          - Korean (韩语)
+          - Japanese (日语)
+          - Russian (俄语)
+          - Spanish (西班牙语)
+          - French (法语)
+          - Portuguese (葡萄牙语)
+          - Italian (意大利语)
+    nullable: false
+    description: Source language
+    value: en
+    executor_name: python
+  - handle: targetLang
+    json_schema:
+      type: string
+      enum:
+        - zh
+        - en
+        - ko
+        - ja
+        - ru
+        - es
+        - fr
+        - pt
+        - it
+      ui:options:
+        enumNames:
+          - Chinese (简体中文)
+          - English (英文)
+          - Korean (韩语)
+          - Japanese (日语)
+          - Russian (俄语)
+          - Spanish (西班牙语)
+          - French (法语)
+          - Portuguese (葡萄牙语)
+          - Italian (意大利语)
+    nullable: false
+    description: Target language
+    value: zh
+    executor_name: python
+  - handle: saved_path
+    json_schema:
+      type: string
+      ui:widget: save
+    nullable: true
+    value:
+    executor_name: python
+outputs_def:
+  - handle: saved_path
+    json_schema:
+      type: string
+      ui:widget: save
+    nullable: false
+    description: Path of the successfully downloaded file
+    executor_name: python
+outputs_from:
+  - handle: saved_path
+    from_node:
+      - node_id: file-downloader#1
+        output_handle: saved_path

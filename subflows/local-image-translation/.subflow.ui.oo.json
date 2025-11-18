@@ -1,0 +1,54 @@
+{
+  "nodes": {
+    "submit#1": {
+      "rfNode": {
+        "position": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    "get-result#1": {
+      "rfNode": {
+        "position": {
+          "x": 600,
+          "y": 0
+        }
+      }
+    },
+    "upload-to-cloud#1": {
+      "rfNode": {
+        "position": {
+          "x": 1200,
+          "y": 0
+        }
+      }
+    },
+    "file-downloader#1": {
+      "rfNode": {
+        "position": {
+          "x": 1800,
+          "y": 0
+        }
+      }
+    }
+  },
+  "pseudoNodes": {
+    "input": {
+      "rfNode": {
+        "position": {
+          "x": -892.8563434872601,
+          "y": -149.17562667446583
+        }
+      }
+    },
+    "output": {
+      "rfNode": {
+        "position": {
+          "x": 1098.0978105507418,
+          "y": -16.16164626668031
+        }
+      }
+    }
+  }
+}

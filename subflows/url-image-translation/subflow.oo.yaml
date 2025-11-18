@@ -1,0 +1,107 @@
+title: Url Image Translation
+description: "Translate text in an image URL from source to target language and
+  return the translated image URL."
+nodes:
+  - node_id: submit#1
+    task: self::submit-image-translation
+    inputs_from:
+      - handle: imageURL
+        value: "https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/6962921671\
+          /p1007156.webp"
+        from_flow:
+          - input_handle: imageURL
+      - handle: sourceLang
+        value: zh
+        from_flow:
+          - input_handle: sourceLang
+      - handle: targetLang
+        from_flow:
+          - input_handle: targetLang
+
+  - node_id: get-result#1
+    task: self::get-image-translation-result
+    inputs_from:
+      - handle: taskId
+        from_node:
+          - node_id: submit#1
+            output_handle: taskId
+      - handle: maxRetries
+        value: 60
+      - handle: retryInterval
+        value: 2
+inputs_def:
+  - handle: imageURL
+    json_schema:
+      type: string
+    nullable: false
+    description: The URL of the image to be translated
+    value: https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/6962921671/p1007156.webp
+    executor_name: python
+  - handle: sourceLang
+    json_schema:
+      type: string
+      enum:
+        - zh
+        - en
+        - ko
+        - ja
+        - ru
+        - es
+        - fr
+        - pt
+        - it
+      ui:options:
+        enumNames:
+          - Chinese (简体中文)
+          - English (英文)
+          - Korean (韩语)
+          - Japanese (日语)
+          - Russian (俄语)
+          - Spanish (西班牙语)
+          - French (法语)
+          - Portuguese (葡萄牙语)
+          - Italian (意大利语)
+    nullable: false
+    description: Source language
+    value: en
+    executor_name: python
+  - handle: targetLang
+    json_schema:
+      type: string
+      enum:
+        - zh
+        - en
+        - ko
+        - ja
+        - ru
+        - es
+        - fr
+        - pt
+        - it
+      ui:options:
+        enumNames:
+          - Chinese (简体中文)
+          - English (英文)
+          - Korean (韩语)
+          - Japanese (日语)
+          - Russian (俄语)
+          - Spanish (西班牙语)
+          - French (法语)
+          - Portuguese (葡萄牙语)
+          - Italian (意大利语)
+    nullable: false
+    description: Target language
+    value: zh
+    executor_name: python
+outputs_def:
+  - handle: translatedImageURL
+    json_schema:
+      type: string
+    nullable: false
+    description: URL of the translated image
+    executor_name: python
+outputs_from:
+  - handle: translatedImageURL
+    from_node:
+      - node_id: get-result#1
+        output_handle: translatedImageURL

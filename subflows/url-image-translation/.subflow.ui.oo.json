@@ -1,0 +1,38 @@
+{
+  "nodes": {
+    "submit#1": {
+      "rfNode": {
+        "position": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    "get-result#1": {
+      "rfNode": {
+        "position": {
+          "x": 600,
+          "y": 0
+        }
+      }
+    }
+  },
+  "pseudoNodes": {
+    "input": {
+      "rfNode": {
+        "position": {
+          "x": -451.50251790208085,
+          "y": -146.98884941500305
+        }
+      }
+    },
+    "output": {
+      "rfNode": {
+        "position": {
+          "x": 1098.0978105507418,
+          "y": -16.16164626668031
+        }
+      }
+    }
+  }
+}
