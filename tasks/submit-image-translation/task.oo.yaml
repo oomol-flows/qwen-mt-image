@@ -1,11 +1,11 @@
 inputs_def:
   - handle: imageURL
-    description: "The URL of the image to be translated"
+    description: "%the-url-of-the-image-to-be-translated%"
     json_schema:
       type: string
     nullable: false
   - handle: sourceLang
-    description: "Source language"
+    description: "%source-language%"
     json_schema:
       type: string
       enum:
@@ -29,10 +29,10 @@ inputs_def:
           - "French (法语)"
           - "Portuguese (葡萄牙语)"
           - "Italian (意大利语)"
-    nullable: false
     value: "zh"
+    nullable: false
   - handle: targetLang
-    description: "Target language"
+    description: "%target-language%"
     json_schema:
       type: string
       enum:
@@ -56,12 +56,12 @@ inputs_def:
           - "French (法语)"
           - "Portuguese (葡萄牙语)"
           - "Italian (意大利语)"
-    nullable: false
     value: "en"
+    nullable: false
 
 outputs_def:
   - handle: taskId
-    description: "The task ID for polling the translation result"
+    description: "%the-task-id-for-polling-the-translation-result%"
     json_schema:
       type: string
 
@@ -71,7 +71,6 @@ executor:
     entry: __init__.py
     spawn: false
 
-title: "Submit Image Translation"
+title: "%submit-image-translation%"
 icon: ":carbon:image-copy:"
-description: "Submit an image translation request to the Qwen MT Image service
-  and receive a task ID for result polling"
+description: "%submit-an-image-translation-request-to-the-qwen-mt-image-service%"

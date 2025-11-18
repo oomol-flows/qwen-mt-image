@@ -1,6 +1,5 @@
-title: Url Image Translation
-description: "Translate text in an image URL from source to target language and
-  return the translated image URL."
+title: "%url-image-translation%"
+description: "%translate-text-in-an-image-url-from-source-to-target-language-an%"
 nodes:
   - node_id: submit#1
     task: self::submit-image-translation
@@ -31,13 +30,14 @@ nodes:
         value: 2
 inputs_def:
   - handle: imageURL
+    description: "%the-url-of-the-image-to-be-translated3%"
     json_schema:
       type: string
-    nullable: false
-    description: The URL of the image to be translated
     value: https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/6962921671/p1007156.webp
+    nullable: false
     executor_name: python
   - handle: sourceLang
+    description: "%source-language3%"
     json_schema:
       type: string
       enum:
@@ -61,11 +61,11 @@ inputs_def:
           - French (法语)
           - Portuguese (葡萄牙语)
           - Italian (意大利语)
-    nullable: false
-    description: Source language
     value: en
+    nullable: false
     executor_name: python
   - handle: targetLang
+    description: "%target-language3%"
     json_schema:
       type: string
       enum:
@@ -89,16 +89,15 @@ inputs_def:
           - French (法语)
           - Portuguese (葡萄牙语)
           - Italian (意大利语)
-    nullable: false
-    description: Target language
     value: zh
+    nullable: false
     executor_name: python
 outputs_def:
   - handle: translatedImageURL
+    description: "%url-of-the-translated-image2%"
     json_schema:
       type: string
     nullable: false
-    description: URL of the translated image
     executor_name: python
 outputs_from:
   - handle: translatedImageURL

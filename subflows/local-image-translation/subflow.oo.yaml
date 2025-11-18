@@ -1,6 +1,5 @@
-title: Local Image Translation
-description: "Translate text in a local image file from source to target
-  language and save the result."
+title: "%local-image-translation%"
+description: "%translate-text-in-a-local-image-file-from-source-to-target-langu%"
 nodes:
   - node_id: submit#1
     task: self::submit-image-translation
@@ -32,14 +31,14 @@ nodes:
       - handle: retryInterval
         value: 2
   - node_id: upload-to-cloud#1
-    title: "上传文件到云端 #1"
+    title: "%1%"
     inputs_from:
       - handle: file
         from_flow:
           - input_handle: image_file
     task: upload-to-cloud::upload-to-cloud
   - node_id: file-downloader#1
-    title: "下载文件 #1"
+    title: "%12%"
     inputs_from:
       - handle: url
         from_node:
@@ -77,13 +76,14 @@ nodes:
     subflow: downloader::file-downloader
 inputs_def:
   - handle: image_file
-    description: The URL of the image to be translated
+    description: "%the-url-of-the-image-to-be-translated2%"
     json_schema:
       type: string
       ui:widget: file
     nullable: false
     executor_name: python
   - handle: sourceLang
+    description: "%source-language2%"
     json_schema:
       type: string
       enum:
@@ -107,11 +107,11 @@ inputs_def:
           - French (法语)
           - Portuguese (葡萄牙语)
           - Italian (意大利语)
-    nullable: false
-    description: Source language
     value: en
+    nullable: false
     executor_name: python
   - handle: targetLang
+    description: "%target-language2%"
     json_schema:
       type: string
       enum:
@@ -135,24 +135,23 @@ inputs_def:
           - French (法语)
           - Portuguese (葡萄牙语)
           - Italian (意大利语)
-    nullable: false
-    description: Target language
     value: zh
+    nullable: false
     executor_name: python
   - handle: saved_path
     json_schema:
       type: string
       ui:widget: save
-    nullable: true
     value:
+    nullable: true
     executor_name: python
 outputs_def:
   - handle: saved_path
+    description: "%path-of-the-successfully-downloaded-file%"
     json_schema:
       type: string
       ui:widget: save
     nullable: false
-    description: Path of the successfully downloaded file
     executor_name: python
 outputs_from:
   - handle: saved_path
