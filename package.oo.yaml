@@ -1,9 +1,13 @@
 version: 0.0.1
+name: qwen_mt_image_translation
+displayName: Qwen MT Image Translation
+description: Translate text in images using Qwen Multi-modal Translation API
+  with URL-based and file-based workflows for seamless integration.
 scripts:
   bootstrap: |
     npm install
     poetry install --no-root
+icon: ./icon.png
 dependencies:
   upload-to-cloud: 0.0.5
   downloader: 0.1.1
-icon: ./icon.png
