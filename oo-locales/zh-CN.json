@@ -27,5 +27,7 @@
   "the-url-of-the-image-to-be-translated3": "要翻译的图片的 URL",
   "source-language3": "源语言",
   "target-language3": "目标语言",
-  "url-of-the-translated-image2": "已翻译图片的 URL"
+  "url-of-the-translated-image2": "已翻译图片的 URL",
+  "display-name2": "Qwen MT 图像翻译",
+  "description2": "使用 Qwen 多模态翻译 API，通过基于 URL 和文件的工作流程，实现图像中文本的无缝翻译集成。"
 }

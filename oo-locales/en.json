@@ -27,5 +27,7 @@
   "the-url-of-the-image-to-be-translated3": "The URL of the image to be translated",
   "source-language3": "Source language",
   "target-language3": "Target language",
-  "url-of-the-translated-image2": "URL of the translated image"
+  "url-of-the-translated-image2": "URL of the translated image",
+  "display-name2": "Qwen MT Image Translation",
+  "description2": "Translate text in images using Qwen Multi-modal Translation API with URL-based and file-based workflows for seamless integration."
 }
