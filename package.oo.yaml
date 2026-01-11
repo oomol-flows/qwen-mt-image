@@ -1,4 +1,4 @@
-version: 0.0.2
+version: 0.0.3
 name: qwen_mt_image_translation
 displayName: "%display-name2%"
 description: "%description2%"
