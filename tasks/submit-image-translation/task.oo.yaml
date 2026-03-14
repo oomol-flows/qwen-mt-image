@@ -3,6 +3,7 @@ inputs_def:
     description: "%the-url-of-the-image-to-be-translated%"
     json_schema:
       type: string
+    value: ""
     nullable: false
   - handle: sourceLang
     description: "%source-language%"
@@ -29,7 +30,7 @@ inputs_def:
           - "French (法语)"
           - "Portuguese (葡萄牙语)"
           - "Italian (意大利语)"
-    value: "zh"
+    value: zh
     nullable: false
   - handle: targetLang
     description: "%target-language%"
@@ -56,7 +57,7 @@ inputs_def:
           - "French (法语)"
           - "Portuguese (葡萄牙语)"
           - "Italian (意大利语)"
-    value: "en"
+    value: en
     nullable: false
 
 outputs_def:
@@ -74,3 +75,4 @@ executor:
 title: "%submit-image-translation%"
 icon: ":carbon:image-copy:"
 description: "%submit-an-image-translation-request-to-the-qwen-mt-image-service%"
+private: true

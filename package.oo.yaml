@@ -1,4 +1,4 @@
-version: 0.0.3
+version: 0.0.4
 name: qwen_mt_image_translation
 displayName: "%display-name2%"
 description: "%description2%"
@@ -6,8 +6,8 @@ scripts:
   bootstrap: |
     npm install
     poetry install --no-root
-icon: ./icon.png
+icon: "./icon.png"
 dependencies:
-  upload-to-cloud: 0.0.5
-  downloader: 0.1.1
+  downloader: 0.1.5
 repository: https://github.com/oomol-flows/qwen-mt-image.git
+releaseNotes: "fix: hide useless block"

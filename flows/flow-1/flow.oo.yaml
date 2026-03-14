@@ -1,2 +1,11 @@
 nodes:
-  []
+  - node_id: url-image-translation#1
+    title: "Url Image Translation #1"
+    inputs_from:
+      - handle: imageURL
+        value: https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/6962921671/p1007156.webp
+      - handle: sourceLang
+        value: en
+      - handle: targetLang
+        value: zh
+    subflow: self::url-image-translation

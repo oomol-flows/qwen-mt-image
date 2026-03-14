@@ -28,6 +28,45 @@ nodes:
         value: 60
       - handle: retryInterval
         value: 2
+  - node_id: url2file#1
+    title: "URL to file #1"
+    inputs_from:
+      - handle: url
+        from_node:
+          - node_id: get-result#1
+            output_handle: translatedImageURL
+      - handle: saved_folder
+        value: null
+      - handle: ensure_folder
+        value: false
+      - handle: file_head
+        value: null
+      - handle: if_existing
+        value: override
+      - handle: threads_count
+        value: 1
+      - handle: headers
+        value:
+          {}
+      - handle: cookies
+        value:
+          {}
+      - handle: window_width
+        value: 7
+      - handle: failure_ladder
+        value:
+          - 5
+      - handle: min_segment_length
+        value: 1048576
+      - handle: once_fetch_size
+        value: 16384
+      - handle: timeout
+        value: 30
+      - handle: retry_times
+        value: 0
+      - handle: retry_sleep
+        value: 0
+    subflow: downloader::url2file
 inputs_def:
   - handle: imageURL
     description: "%the-url-of-the-image-to-be-translated3%"
@@ -93,14 +132,14 @@ inputs_def:
     nullable: false
     executor_name: python
 outputs_def:
-  - handle: translatedImageURL
+  - handle: file_path
     description: "%url-of-the-translated-image2%"
     json_schema:
       type: string
     nullable: false
     executor_name: python
 outputs_from:
-  - handle: translatedImageURL
+  - handle: file_path
     from_node:
-      - node_id: get-result#1
-        output_handle: translatedImageURL
+      - node_id: url2file#1
+        output_handle: file

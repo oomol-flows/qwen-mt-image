@@ -11,8 +11,24 @@
     "get-result#1": {
       "rfNode": {
         "position": {
-          "x": 600,
+          "x": 486.346109145798,
           "y": 0
+        }
+      }
+    },
+    "url2file#1": {
+      "rfNode": {
+        "position": {
+          "x": 957.7542974118066,
+          "y": 0
+        }
+      },
+      "sections": {
+        "inputs": {
+          "groupCollapsed": {
+            "Strategy": true,
+            "Connection": true
+          }
         }
       }
     }
@@ -21,16 +37,16 @@
     "input": {
       "rfNode": {
         "position": {
-          "x": -451.50251790208085,
-          "y": -146.98884941500305
+          "x": -488.27289435491093,
+          "y": 0
         }
       }
     },
     "output": {
       "rfNode": {
         "position": {
-          "x": 1098.0978105507418,
-          "y": -16.16164626668031
+          "x": 1427.3598178783561,
+          "y": 0
         }
       }
     }

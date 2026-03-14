@@ -38,3 +38,4 @@ executor:
 title: "%get-image-translation-result%"
 icon: ":carbon:image-search:"
 description: "%poll-the-qwen-mt-image-service-for-translation-results-using-the%"
+private: true
